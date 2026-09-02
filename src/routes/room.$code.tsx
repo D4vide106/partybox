@@ -68,7 +68,9 @@ export const Route = createFileRoute("/room/$code")({
 });
 
 function RoomPage() {
-  const { code } = Route.useParams();
+  const { code: routeCode } = Route.useParams();
+  const fallbackCode = typeof window !== "undefined" ? (window.location.hash.match(/room/([^/?#]+)/)?.[1] || window.location.pathname.match(/room/([^/?#]+)/)?.[1]) : undefined;
+  const code = routeCode || fallbackCode;
   const navigate = useNavigate();
   const { room, loading } = useRoom(code);
   const players = usePlayers(room?.id);

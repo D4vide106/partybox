@@ -1,3 +1,8 @@
+
+function safeChannelId(prefix: string): string {
+  const rand = Math.random().toString(36).slice(2, 9) + Date.now().toString(36);
+  return ${prefix}-;
+}
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -127,7 +132,7 @@ export function useRoom(code: string | undefined) {
     const poll = setInterval(() => void load(), 1500);
 
     const channel = supabase
-      .channel(`room-${code}-${crypto.randomUUID()}`)
+      .channel(`room-${code}-${safeChannelId(sub)}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "rooms", filter: `code=eq.${code}` }, (p) => {
         if (p.eventType === "DELETE") setRoom(null);
         else setRoom(normalizeRoom(p.new));
@@ -157,7 +162,7 @@ export function usePlayers(roomId: string | undefined) {
     void load();
 
     const channel = supabase
-      .channel(`players-${roomId}-${crypto.randomUUID()}`)
+      .channel(`players-${roomId}-${safeChannelId(sub)}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "players", filter: `room_id=eq.${roomId}` }, () => {
         void load();
       })
@@ -208,7 +213,7 @@ export function useCurrentRound(roomId: string | undefined, roundNumber: number)
     const poll = setInterval(() => void load(), 1000);
 
     const channel = supabase
-      .channel(`round-${roomId}-${roundNumber}-${crypto.randomUUID()}`)
+      .channel(`round-${roomId}-${roundNumber}-${safeChannelId(sub)}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "rounds", filter: `room_id=eq.${roomId}` }, () => {
         void load();
       })
@@ -237,7 +242,7 @@ export function useSubmissions(roundId: string | undefined) {
     void load();
 
     const channel = supabase
-      .channel(`subs-${roundId}-${crypto.randomUUID()}`)
+      .channel(`subs-${roundId}-${safeChannelId(sub)}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "submissions", filter: `round_id=eq.${roundId}` }, () => {
         void load();
       })
@@ -264,7 +269,7 @@ export function useVotes(roomId: string | undefined) {
     }
     void load();
     const ch = supabase
-      .channel(`votes-${roomId}-${crypto.randomUUID()}`)
+      .channel(`votes-${roomId}-${safeChannelId(sub)}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "player_votes", filter: `room_id=eq.${roomId}` }, () => {
         void load();
       })
@@ -299,7 +304,7 @@ export function useGameVotes(roomId: string | undefined) {
     void load();
     const poll = setInterval(() => void load(), 2000);
     const ch = supabase
-      .channel(`gvotes-${roomId}-${crypto.randomUUID()}`)
+      .channel(`gvotes-${roomId}-${safeChannelId(sub)}`)
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .on("postgres_changes" as any, { event: "*", schema: "public", table: "game_votes", filter: `room_id=eq.${roomId}` }, () => { void load(); })
       .subscribe();
