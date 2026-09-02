@@ -1,0 +1,319 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * PartyBox design system — vibrant neon party vibes.
+ * Dark base, hot magenta primary, electric yellow accent, cyan chart pop.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Richup-inspired night economy interface */
+  --background: oklch(0.12 0.035 295);
+  --foreground: oklch(0.98 0.01 300);
+
+  --card: oklch(0.20 0.055 292);
+  --card-foreground: oklch(0.98 0.01 300);
+  --popover: oklch(0.20 0.055 292);
+  --popover-foreground: oklch(0.98 0.01 300);
+
+  /* Rich violet primary */
+  --primary: oklch(0.64 0.22 292);
+  --primary-foreground: oklch(0.98 0.01 300);
+
+  --secondary: oklch(0.25 0.07 292);
+  --secondary-foreground: oklch(0.98 0.01 300);
+
+  --muted: oklch(0.25 0.055 292);
+  --muted-foreground: oklch(0.72 0.05 300);
+
+  --accent: oklch(0.75 0.19 292);
+  --accent-foreground: oklch(0.98 0.01 300);
+
+  --destructive: oklch(0.62 0.24 25);
+  --destructive-foreground: oklch(0.98 0.01 300);
+
+  --border: oklch(0.32 0.075 292);
+  --input: oklch(0.24 0.06 292);
+  --ring: oklch(0.64 0.22 292);
+
+  --chart-1: oklch(0.68 0.28 350);   /* magenta */
+  --chart-2: oklch(0.75 0.22 195);   /* cyan */
+  --chart-3: oklch(0.88 0.19 95);    /* yellow */
+  --chart-4: oklch(0.65 0.24 30);    /* orange */
+  --chart-5: oklch(0.62 0.26 290);   /* purple */
+
+  --sidebar: oklch(0.22 0.06 285);
+  --sidebar-foreground: oklch(0.98 0.01 300);
+  --sidebar-primary: oklch(0.68 0.28 350);
+  --sidebar-primary-foreground: oklch(0.14 0.03 285);
+  --sidebar-accent: oklch(0.32 0.09 285);
+  --sidebar-accent-foreground: oklch(0.98 0.01 300);
+  --sidebar-border: oklch(0.35 0.08 285);
+  --sidebar-ring: oklch(0.68 0.28 350);
+}
+
+.dark {
+    --background: oklch(0.12 0.035 295);
+  --foreground: oklch(0.98 0.01 300);
+    --card: oklch(0.20 0.055 292);
+  --card-foreground: oklch(0.98 0.01 300);
+    --popover: oklch(0.20 0.055 292);
+  --popover-foreground: oklch(0.98 0.01 300);
+    --primary: oklch(0.64 0.22 292);
+    --primary-foreground: oklch(0.98 0.01 300);
+    --secondary: oklch(0.25 0.07 292);
+  --secondary-foreground: oklch(0.98 0.01 300);
+    --muted: oklch(0.25 0.055 292);
+  --muted-foreground: oklch(0.72 0.05 300);
+    --accent: oklch(0.75 0.19 292);
+    --accent-foreground: oklch(0.98 0.01 300);
+  --destructive: oklch(0.62 0.24 25);
+  --destructive-foreground: oklch(0.98 0.01 300);
+    --border: oklch(0.32 0.075 292);
+    --input: oklch(0.24 0.06 292);
+    --ring: oklch(0.64 0.22 292);
+  --chart-1: oklch(0.68 0.28 350);
+  --chart-2: oklch(0.75 0.22 195);
+  --chart-3: oklch(0.88 0.19 95);
+  --chart-4: oklch(0.65 0.24 30);
+  --chart-5: oklch(0.62 0.26 290);
+  --sidebar: oklch(0.22 0.06 285);
+  --sidebar-foreground: oklch(0.98 0.01 300);
+  --sidebar-primary: oklch(0.68 0.28 350);
+  --sidebar-primary-foreground: oklch(0.14 0.03 285);
+  --sidebar-accent: oklch(0.32 0.09 285);
+  --sidebar-accent-foreground: oklch(0.98 0.01 300);
+  --sidebar-border: oklch(0.35 0.08 285);
+  --sidebar-ring: oklch(0.68 0.28 350);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    background-image:
+      radial-gradient(1200px 800px at 15% -10%, oklch(0.35 0.16 320 / 0.35), transparent 60%),
+      radial-gradient(1000px 700px at 110% 10%, oklch(0.35 0.16 250 / 0.30), transparent 65%),
+      linear-gradient(180deg, oklch(0.11 0.035 295), oklch(0.09 0.04 278)),
+      linear-gradient(color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--foreground) 3%, transparent) 1px, transparent 1px);
+    background-size: auto, auto, auto, 72px 72px, 72px 72px;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 55%, transparent);
+    color: var(--primary-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 30px oklch(0.68 0.28 350 / 0.6), 0 0 60px oklch(0.68 0.28 350 / 0.3);
+  }
+  .text-glow-yellow {
+    text-shadow: 0 0 30px oklch(0.88 0.19 95 / 0.6), 0 0 60px oklch(0.88 0.19 95 / 0.3);
+  }
+  .shadow-neon {
+    box-shadow: 0 0 0 1px oklch(0.64 0.22 292 / 0.5), 0 0 40px oklch(0.64 0.22 292 / 0.35);
+  }
+  .shadow-neon-yellow {
+    box-shadow: 0 0 0 1px oklch(0.88 0.19 95 / 0.5), 0 0 40px oklch(0.88 0.19 95 / 0.35);
+  }
+  .bg-party-gradient {
+    background-image: linear-gradient(135deg, oklch(0.64 0.22 292) 0%, oklch(0.58 0.20 278) 50%, oklch(0.45 0.15 250) 100%);
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 1px oklch(0.68 0.28 350 / 0.5), 0 0 30px oklch(0.68 0.28 350 / 0.35); }
+    50% { box-shadow: 0 0 0 1px oklch(0.68 0.28 350 / 0.8), 0 0 60px oklch(0.68 0.28 350 / 0.6); }
+  }
+  .animate-bounce-in {
+    animation: bounce-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes bounce-in {
+    0% { transform: scale(0.3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-12deg); }
+    50% { transform: translateY(-12px) rotate(-8deg); }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(110deg, transparent 30%, color-mix(in oklab, var(--foreground) 12%, transparent) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: shimmer 2.4s linear infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .animate-rise {
+    animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes rise {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-pan 12s ease infinite;
+  }
+  @keyframes gradient-pan {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .glass-card {
+    background: color-mix(in oklab, var(--card) 55%, transparent);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,0.55), inset 0 1px 0 color-mix(in oklab, var(--foreground) 6%, transparent);
+  }
+
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.28) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+  }
+  .btn-shine:hover::after { transform: translateX(120%); }
+
+  .monopoly-die-roll {
+    animation: monopoly-die-roll 0.78s cubic-bezier(0.2, 0.85, 0.25, 1.15) both;
+    transform-origin: 50% 50%;
+  }
+
+  .monopoly-pawn {
+    will-change: left, top, transform;
+    animation: monopoly-pawn-idle 1.8s ease-in-out infinite;
+  }
+
+  .monopoly-board-center::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px);
+    background-size: 38px 38px;
+    mask-image: radial-gradient(circle at 50% 45%, black, transparent 75%);
+    pointer-events: none;
+  }
+
+
+  @keyframes monopoly-die-roll {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    18% { transform: translateY(-24px) rotate(120deg) scale(1.08); }
+    42% { transform: translateY(10px) rotate(260deg) scale(0.96); }
+    68% { transform: translateY(-10px) rotate(385deg) scale(1.04); }
+    100% { transform: translateY(0) rotate(720deg) scale(1); }
+  }
+
+  @keyframes monopoly-pawn-idle {
+    0%, 100% { filter: drop-shadow(0 8px 12px rgba(0,0,0,0.35)); }
+    50% { filter: drop-shadow(0 12px 18px rgba(0,0,0,0.48)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .monopoly-die-roll {
+      animation: none;
+    }
+
+    .monopoly-pawn {
+      transition: none;
+      animation: none;
+    }
+  }
+}
